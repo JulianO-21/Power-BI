@@ -1,0 +1,10 @@
+Table 2 = 
+    VAR __table1 = 'Table5'
+    VAR __table2 = 'Table6'
+    VAR __truefalse = IF(TRUE(),1,2)
+    VAR __table1a = ADDCOLUMNS(__table1,"truefalse",__truefalse)
+    VAR __table2a = ADDCOLUMNS(__table2,"truefalse",__truefalse)
+    VAR __table1b = EXCEPT(__table1a,FILTER(__table1a,[truefalse]=1))
+    VAR __table2b = EXCEPT(__table2a,FILTER(__table2a,[truefalse]=2))
+RETURN
+    UNION(__table1b, __table2b)
